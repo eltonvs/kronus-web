@@ -16,11 +16,11 @@ export const SubmitButton = styled.button`
   transition: background-color 0.4s ease-out;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(24, 67, 71, 0.7);
   }
 
   &:focus {
     outline: none;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(24, 67, 71, 0.7);
   }
 `

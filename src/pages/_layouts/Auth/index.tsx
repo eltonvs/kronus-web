@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { Content, Wrapper } from './styled'
+import * as S from './styled'
 
 const AuthLayout: React.FC = ({ children }) => (
-  <Wrapper>
-    <Content>{children}</Content>
-  </Wrapper>
+  <S.Wrapper>
+    <S.Content>{children}</S.Content>
+  </S.Wrapper>
 )
 
 AuthLayout.propTypes = {

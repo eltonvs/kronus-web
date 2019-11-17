@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import bgImage from '../../../assets/auth-background.jpg'
 
 export const Wrapper = styled.main`
   display: flex;
@@ -7,7 +8,11 @@ export const Wrapper = styled.main`
   min-height: 100vh;
   height: 100%;
   width: 100%;
-  background: rgba(47, 100, 90, 1);
+  background: url(${bgImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 60% 30%;
+  background-attachment: fixed;
   font-family: 'quicksand';
 
   hr {
@@ -50,7 +55,7 @@ export const Content = styled.section`
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(67, 185, 198, 0.9);
   width: 400px;
   color: white;
   text-align: center;
