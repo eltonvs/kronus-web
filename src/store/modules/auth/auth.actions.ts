@@ -1,4 +1,4 @@
-import { SignInFormData } from '~/types'
+import { SignInFormData } from '../../../types'
 
 export function signInRequest(email: string, password: string) {
   return {

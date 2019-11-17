@@ -2,8 +2,8 @@ import { Form, SubmitHandler } from '@rocketseat/unform'
 import React from 'react'
 import * as Yup from 'yup'
 
-import LabeledInput from '~/components/LabeledInput'
-import SubmitButton from '~/components/SubmitButton'
+import LabeledInput from '../../components/LabeledInput'
+import SubmitButton from '../../components/SubmitButton'
 
 interface SignInFormParams {
   submitForm: SubmitHandler

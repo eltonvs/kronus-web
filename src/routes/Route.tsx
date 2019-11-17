@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 
-import AuthLayout from '~/pages/_layouts/Auth'
-import DefaultLayout from '~/pages/_layouts/Default'
+import AuthLayout from '../pages/_layouts/Auth'
+import DefaultLayout from '../pages/_layouts/Default'
 
-import { store } from '~/store'
+import { store } from '../store'
 
 const RouteWrapper = ({ component: Component, isPrivate, ...rest }: any) => {
   const { signed } = store.getState().auth

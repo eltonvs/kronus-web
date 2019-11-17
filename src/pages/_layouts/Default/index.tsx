@@ -3,7 +3,7 @@ import React from 'react'
 
 // import { Content, Wrapper } from './styled'
 
-import Header from '~/components/Header'
+import Header from '../../../components/Header'
 
 const DefaultLayout: React.FC = ({ children }) => (
   <main>

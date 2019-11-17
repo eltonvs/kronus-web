@@ -1,5 +1,5 @@
 import produce from 'immer'
-import { AuthStoreState } from '~/types'
+import { AuthStoreState } from '../../../types'
 
 const INITIAL_STATE: AuthStoreState = {
   token: null,

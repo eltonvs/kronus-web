@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { useSelector } from '~/store'
-import { logOut } from '~/store/modules/auth/auth.actions'
+import { useSelector } from '../../store'
+import { logOut } from '../../store/modules/auth/auth.actions'
 
 const Header: React.FC = () => {
   const dispatch = useDispatch()

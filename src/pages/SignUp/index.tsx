@@ -3,10 +3,10 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import SignUpForm from '~/components/SignUpForm'
+import SignUpForm from '../../components/SignUpForm'
 
-import { useSelector } from '~/store'
-import { signUpRequest } from '~/store/modules/auth/auth.actions'
+import { useSelector } from '../../store'
+import { signUpRequest } from '../../store/modules/auth/auth.actions'
 
 const SignUp: React.FC = () => {
   const dispatch = useDispatch()

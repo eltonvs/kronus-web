@@ -1,6 +1,6 @@
 import { Input } from '@rocketseat/unform'
 import React from 'react'
-import { InputProps, TextAreaProps } from '~/types'
+import { InputProps, TextAreaProps } from '../../types'
 
 import * as S from './styled'
 
