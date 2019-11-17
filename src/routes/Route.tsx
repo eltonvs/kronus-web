@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 

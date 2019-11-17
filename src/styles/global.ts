@@ -1,5 +1,7 @@
 import { createGlobalStyle, css } from 'styled-components'
 
+import 'react-toastify/dist/ReactToastify.css'
+
 export default createGlobalStyle`${css`
   @import url(https://fonts.googleapis.com/css?family=Quicksand);
 

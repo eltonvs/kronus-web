@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-// import { Content, Wrapper } from './styled'
+import * as S from './styled'
 
 import Header from '../../../components/Header'
 
 const DefaultLayout: React.FC = ({ children }) => (
-  <main>
+  <S.Wrapper>
     <Header />
-    <section>{children}</section>
-  </main>
+    <S.Content>{children}</S.Content>
+  </S.Wrapper>
 )
 
 DefaultLayout.propTypes = {

@@ -7,7 +7,7 @@ export default (reducers: Reducer) => {
     {
       key: 'clock-in-out',
       storage,
-      whitelist: ['auth', 'user'],
+      whitelist: ['auth', 'clock', 'user'],
     },
     reducers
   )

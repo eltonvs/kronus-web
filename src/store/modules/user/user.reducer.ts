@@ -1,6 +1,8 @@
 import produce from 'immer'
 
-const INITIAL_STATE = {
+import { UserStoreState } from '../../../types'
+
+const INITIAL_STATE: UserStoreState = {
   profile: null,
 }
 
