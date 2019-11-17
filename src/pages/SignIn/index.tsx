@@ -1,51 +1,32 @@
+import { SubmitHandler } from '@rocketseat/unform'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { InputProps } from '~/types'
-import * as S from './styled'
+import SignInForm from '~/components/SignInForm'
 
-import Input from '~/components/LabeledInput'
-import SubmitButton from '~/components/SubmitButton'
-
-const inputs: InputProps[] = [
-  {
-    label: 'User Name',
-    type: 'text',
-    show: true,
-    validated: false,
-    id: 'a',
-  },
-  {
-    label: 'Password',
-    type: 'password',
-    show: true,
-    validated: false,
-    id: 'b',
-  },
-].map(e => ({ ...e, validateField: null }))
-
-function submitForm(e: React.FormEvent) {
-  e.preventDefault()
-}
+import { useSelector } from '~/store'
+import { signInRequest } from '~/store/modules/auth/auth.actions'
 
 const Login: React.FC = () => {
-  const inputsMapped = inputs.map((e, idx) => <Input key={idx} {...e} />)
+  const dispatch = useDispatch()
+  const loading = useSelector(state => state.auth.loading)
+
+  const submitForm: SubmitHandler = ({ email, password }) => {
+    dispatch(signInRequest(email, password))
+  }
+
   return (
-    <S.SignInPage>
-      <section>
-        <h1>Log In</h1>
-        <hr />
-        <form onSubmit={submitForm}>
-          {inputsMapped}
-          <SubmitButton />
-        </form>
-        <div className="signup-link">
-          <p className="in-out">
-            Don't have an account? <Link to="/sign-up">Sign-Up Here</Link>
-          </p>
-        </div>
-      </section>
-    </S.SignInPage>
+    <>
+      <h1>Log In</h1>
+      <hr />
+      <SignInForm submitForm={submitForm} loading={loading} />
+      <div className="signup-link">
+        <p className="in-out">
+          Don't have an account? <Link to="/sign-up">Sign-Up Here</Link>
+        </p>
+      </div>
+    </>
   )
 }
 

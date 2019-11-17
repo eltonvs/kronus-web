@@ -1,22 +1,33 @@
-import React from 'react'
-
-import { Redirect, Route, RouteProps } from 'react-router-dom'
-
 import PropTypes from 'prop-types'
+import React from 'react'
+import { Redirect, Route } from 'react-router-dom'
 
-interface RouteWrapperProps extends RouteProps {
-  isPrivate?: boolean
-}
+import AuthLayout from '~/pages/_layouts/Auth'
+import DefaultLayout from '~/pages/_layouts/Default'
 
-const RouteWrapper: React.FC<RouteWrapperProps> = ({ isPrivate, ...rest }) => {
-  if (isPrivate) {
+import { store } from '~/store'
+
+const RouteWrapper = ({ component: Component, isPrivate, ...rest }: any) => {
+  const { signed } = store.getState().auth
+  if (isPrivate && !signed) {
     return <Redirect to="/" />
   }
-  return <Route {...rest} />
-}
+  if (!isPrivate && signed) {
+    return <Redirect to="/dashboard" />
+  }
 
-RouteWrapper.propTypes = {
-  isPrivate: PropTypes.bool,
+  const Layout = signed ? DefaultLayout : AuthLayout
+
+  return (
+    <Route
+      {...rest}
+      render={props => (
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      )}
+    />
+  )
 }
 
 RouteWrapper.defaultProps = {

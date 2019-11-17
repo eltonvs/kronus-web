@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const SignInPage = styled.main`
+export const Wrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 100vh;
   height: 100%;
   width: 100%;
@@ -17,28 +20,6 @@ export const SignInPage = styled.main`
       rgba(255, 255, 255, 1),
       rgba(255, 255, 255, 0.2)
     );
-  }
-
-  section {
-    opacity: 1;
-    visibility: visible;
-    position: absolute;
-    z-index: 1000;
-    top: 50%;
-    left: 50%;
-    margin-top: -230px;
-    margin-left: -210px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
-    height: 440px;
-    width: 400px;
-    color: white;
-    text-align: center;
-    border-radius: 2px;
-    box-shadow: 10px 10px 15px -6px rgba(0, 0, 0, 0.25);
-    transition: opacity 0.3s ease-in 0.3s, visibility 0.3s ease-in 0.3s;
-    transform: scale(0.9);
   }
 
   .in-out {
@@ -62,4 +43,19 @@ export const SignInPage = styled.main`
       }
     }
   }
+`
+
+export const Content = styled.section`
+  opacity: 1;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 400px;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 10px 10px 15px -6px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.3s ease-in 0.3s, visibility 0.3s ease-in 0.3s;
+  transform: scale(0.9);
 `

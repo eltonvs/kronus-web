@@ -1,9 +1,26 @@
-export type FieldValidator<E> = (e: E, id: string) => void
+interface Props<T> {
+  name: string
+  label?: string
+  multiline?: T
+}
+export declare type InputProps = JSX.IntrinsicElements['input'] & Props<false>
+export declare type TextAreaProps = JSX.IntrinsicElements['textarea'] &
+  Props<true>
 
-export interface InputProps {
-  label: string
-  type: string
-  validated: boolean
-  id: string
-  validateField: FieldValidator<React.FocusEvent<HTMLInputElement>> | null
+export interface SignUpFormData {
+  name: string
+  email: string
+  password: string
+  passwordConfirm: string
+}
+
+export interface SignInFormData {
+  email: string
+  password: string
+}
+
+export interface AuthStoreState {
+  token: string | null
+  signed: boolean
+  loading: boolean
 }

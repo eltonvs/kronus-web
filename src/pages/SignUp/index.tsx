@@ -1,62 +1,32 @@
+import { SubmitHandler } from '@rocketseat/unform'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { InputProps } from '~/types'
-import * as S from './styled'
+import SignUpForm from '~/components/SignUpForm'
 
-import LabeledInput from '~/components/LabeledInput'
-import SubmitButton from '~/components/SubmitButton'
-
-const inputs: InputProps[] = [
-  {
-    label: 'User Name',
-    type: 'text',
-    validated: false,
-    id: 'name',
-  },
-  {
-    label: 'Email',
-    type: 'email',
-    validated: false,
-    id: 'email',
-  },
-  {
-    label: 'Password',
-    type: 'password',
-    validated: false,
-    id: 'password',
-  },
-  {
-    label: 'Re-Enter Password',
-    type: 'password',
-    validated: false,
-    id: 'password-confirm',
-  },
-].map(e => ({ ...e, validateField: null }))
-
-function submitForm(e: React.FormEvent) {
-  e.preventDefault()
-}
+import { useSelector } from '~/store'
+import { signUpRequest } from '~/store/modules/auth/auth.actions'
 
 const SignUp: React.FC = () => {
-  const inputsMapped = inputs.map((e, idx) => <LabeledInput key={idx} {...e} />)
+  const dispatch = useDispatch()
+  const loading = useSelector(state => state.auth.loading)
+
+  const submitForm: SubmitHandler = ({ name, email, password }) => {
+    dispatch(signUpRequest(name, email, password))
+  }
 
   return (
-    <S.SignUpWrapper>
-      <section>
-        <h1>Sign Up</h1>
-        <hr />
-        <form onSubmit={submitForm}>
-          {inputsMapped}
-          <SubmitButton />
-        </form>
-        <div className="signup-link">
-          <p className="in-out">
-            Already have an account? <Link to="/">Log-In Here</Link>
-          </p>
-        </div>
-      </section>
-    </S.SignUpWrapper>
+    <>
+      <h1>Sign Up</h1>
+      <hr />
+      <SignUpForm submitForm={submitForm} loading={loading} />
+      <div className="signup-link">
+        <p className="in-out">
+          Already have an account? <Link to="/">Log-In Here</Link>
+        </p>
+      </div>
+    </>
   )
 }
 

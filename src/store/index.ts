@@ -1,3 +1,7 @@
+import {
+  TypedUseSelectorHook,
+  useSelector as useReduxSelector,
+} from 'react-redux'
 import logger from 'redux-logger'
 import { persistStore } from 'redux-persist'
 import createSagaMiddleware from 'redux-saga'
@@ -18,3 +22,7 @@ const persistor = persistStore(store)
 sagaMiddleware.run(rootSaga)
 
 export { store, persistor }
+
+export const useSelector: TypedUseSelectorHook<ReturnType<
+  typeof rootReducer
+>> = useReduxSelector
